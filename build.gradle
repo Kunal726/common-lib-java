@@ -87,7 +87,7 @@ publishing {
     repositories {
         maven {
             name = "CustomLocalRepo"
-            url = uri("file:///Users/kunal.kulthe/Downloads/MyProjects/MarketMosaic/common-repo") // Custom local path
+            url = uri("file:///C:/MyProjects/MarketMosaic/common-repo") // Custom local path
         }
     }
 }
