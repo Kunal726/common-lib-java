@@ -15,7 +15,7 @@ public class BaseGlobalHandler {
         log.error("Unexpected error: ", ex);
         BaseRespDTO response = new BaseRespDTO();
         response.setCode("SYSTEM_ERROR");
-        response.setMessage("An unexpected error occurred");
+        response.setMessage(ex.getMessage());
         response.setStatus(false);
         return ResponseEntity.internalServerError().body(response);
     }
