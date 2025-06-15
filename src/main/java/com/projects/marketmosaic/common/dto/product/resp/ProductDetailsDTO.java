@@ -58,7 +58,7 @@ public class ProductDetailsDTO {
 
 		private MultipartFile media;
 
-		private Boolean isDefault;
+		private boolean isDefault;
 
 	}
 
