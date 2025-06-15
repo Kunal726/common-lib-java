@@ -21,6 +21,14 @@ public class CommonUtils {
         }
     }
 
+    public static <T> T fromJson(String json, TypeReference<T> typeRef) {
+        try {
+            return mapper.readValue(json, typeRef);
+        } catch (JsonProcessingException e) {
+            throw new MarketMosaicCommonException("Failed to parse JSON", e);
+        }
+    }
+
     public static String toJson(Object obj) {
         try {
             return mapper.writeValueAsString(obj);
