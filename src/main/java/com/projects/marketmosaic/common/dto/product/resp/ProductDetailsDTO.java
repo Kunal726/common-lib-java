@@ -58,6 +58,8 @@ public class ProductDetailsDTO {
 
 		private MultipartFile media;
 
+		private Boolean isDefault;
+
 	}
 
 	@Data
