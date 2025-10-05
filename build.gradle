@@ -78,6 +78,16 @@ test {
     useJUnitPlatform()
 }
 
+
+bootJar {
+    enabled = false   // disable executable jar for library
+}
+
+jar {
+    archiveBaseName.set('market-mosaic-common-lib')
+    archiveVersion.set('1.0-SNAPSHOT')
+}
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
