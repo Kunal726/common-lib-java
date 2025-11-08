@@ -95,9 +95,6 @@ publishing {
         }
     }
     repositories {
-        maven {
-            name = "CustomLocalRepo"
-            url = uri("file:///C:/MyProjects/MarketMosaic/common-repo") // Custom local path
-        }
+        mavenLocal()
     }
 }
