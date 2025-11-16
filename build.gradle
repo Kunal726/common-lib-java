@@ -66,6 +66,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-log4j2' //logging
 
     compileOnly 'jakarta.servlet:jakarta.servlet-api' //servlets
+
+
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.5'                       // JWT API
+    implementation 'io.jsonwebtoken:jjwt-impl:0.12.5'                      // JWT Implementation
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.12.5'                   // JWT Jackson support
 }
 
 dependencyManagement {

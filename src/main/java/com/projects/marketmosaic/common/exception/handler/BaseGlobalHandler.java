@@ -21,7 +21,17 @@ public class BaseGlobalHandler {
     }
 
     @ExceptionHandler(MarketMosaicCommonException.class)
-    public ResponseEntity<BaseRespDTO> commonException(Exception ex) {
+    public ResponseEntity<BaseRespDTO> commonException(MarketMosaicCommonException ex) {
+        if(ex.getCode() == 401) {
+            log.error("Unauthorized error: ", ex);
+            BaseRespDTO response = new BaseRespDTO();
+            response.setCode("AUTH_ERROR");
+            response.setMessage(ex.getMessage());
+            response.setStatus(false);
+            return ResponseEntity.status(401).body(response);
+        }
+
+
         log.error("Unexpected error: ", ex);
         BaseRespDTO response = new BaseRespDTO();
         response.setCode("SYSTEM_ERROR");
