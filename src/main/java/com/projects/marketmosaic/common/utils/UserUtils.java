@@ -29,7 +29,11 @@ public class UserUtils {
 	public void validateUser(HttpServletRequest request) {
 		String token = extractJwtFromCookies(request);
 
-		if(token == null || jwtUtils.isTokenExpired(token)) {
+		if(token == null) {
+			throw new MarketMosaicCommonException("Session not found", 40000);
+		}
+
+		if(jwtUtils.isTokenExpired(token)) {
 			throw new MarketMosaicCommonException("Session Expired", 401);
 		}
 
