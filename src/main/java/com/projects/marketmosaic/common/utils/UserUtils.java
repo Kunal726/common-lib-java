@@ -39,7 +39,9 @@ public class UserUtils {
 
 
 		Long userId = jwtUtils.extractUserId(token);
+		String role = jwtUtils.extractRole(token);
 		request.setAttribute("userId", userId);
+		request.setAttribute("role", role);
 	}
 
 	private String extractJwtFromCookies(HttpServletRequest request) {

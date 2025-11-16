@@ -67,16 +67,7 @@ public class JWTUtils {
         return extractClaim(token, claims -> claims.get("userId", Long.class));
     }
 
-    public List<String> extractRole(String token) {
-        List<?> rawList = extractClaim(token, claims -> claims.get("roles", List.class));
-
-        if (rawList == null) {
-            return List.of(); // empty immutable list
-        }
-
-        return rawList.stream()
-                .filter(Objects::nonNull)
-                .map(Object::toString)
-                .toList();
+    public String extractRole(String token) {
+        return extractClaim(token, claims -> claims.get("role", String.class));
     }
 }
