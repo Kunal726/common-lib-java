@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import javax.crypto.SecretKey;
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Component
 @Slf4j
@@ -64,5 +65,18 @@ public class JWTUtils {
 
     public Long extractUserId(String token) {
         return extractClaim(token, claims -> claims.get("userId", Long.class));
+    }
+
+    public List<String> extractRole(String token) {
+        List<?> rawList = extractClaim(token, claims -> claims.get("roles", List.class));
+
+        if (rawList == null) {
+            return List.of(); // empty immutable list
+        }
+
+        return rawList.stream()
+                .filter(Objects::nonNull)
+                .map(Object::toString)
+                .toList();
     }
 }
