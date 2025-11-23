@@ -7,6 +7,7 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ShippingAddressDTO {
     private Long id;
+    private String name;
     private String addressLine1;
     private String addressLine2;
     private String city;
